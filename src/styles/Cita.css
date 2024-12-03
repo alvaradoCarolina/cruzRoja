@@ -1,0 +1,67 @@
+  
+  .nav-button, .logout-button, .profile-button {
+    background-color: #B40B0B;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .sidebar .menu {
+    padding: 10px;
+  }
+  
+  .sidebar .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar .menu ul li {
+    margin-bottom: 100px;
+  }
+  
+  .main-content {
+    display: flex;
+  }
+  
+  .left-sidebar {
+    width: 3100px;
+    padding-right: 400px;
+    background-color: #f51d1d;
+  }
+  
+  .profile-pic {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .appointment-menu ul {
+    list-style: none;
+    padding: 10px;
+  }
+  
+  .appointment-menu ul li {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .appointment-menu ul li button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #B40B0B;
+    color: rgb(5, 5, 5);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+  }
+
+ 
+  
+  .appointment-menu ul li button:hover {
+    background-color: #ffffff;
+  }
+  

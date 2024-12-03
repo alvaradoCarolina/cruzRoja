@@ -1,0 +1,46 @@
+.informacion-cruz-roja-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .informacion-cruz-roja-main-content {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .informacion-cruz-roja-top-bar {
+    background-color: #b40b0b;
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+  }
+  
+  .informacion-cruz-roja-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .informacion-cruz-roja-content h2 {
+    margin-top: 20px;
+  }
+  
+  .informacion-cruz-roja-content p,
+  .informacion-cruz-roja-content ul {
+    margin: 10px 0;
+  }
+  
+  .informacion-cruz-roja-image {
+    margin: 20px 0;
+  }
+  
+  .informacion-cruz-roja-image img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,53 @@
+.contacto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  background-color: #ffffff; /* Color de fondo opcional */
+}
+
+.contacto-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  width: 100%;
+  max-width: 1200px;
+  margin: 1px 0;
+}
+
+.contacto-info, .suscribe {
+  flex: 1;
+  padding: 40px;
+}
+
+.contacto-info {
+  border-right: 5px solid #b40b0b; /* Línea divisoria opcional */
+}
+
+.suscribe-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #b40b0b;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
