@@ -1,12 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Navbar from "./NavbarConSubmenu";
-import { Container, Row, Col, Card } from "react-bootstrap";
 import "../styles/Home.css";
 import carrucel1 from '../assets/images/carrucel1.png';
 import carrucel2 from '../assets/images/carrucel2.png';
 import carrucel3 from '../assets/images/carrucel3.png';
-import home1 from '../assets/images/info3.png'
+import home1 from '../assets/images/info4.png'
 import home2 from '../assets/images/home1.png'
 import Footer from './Footer';
 

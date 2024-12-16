@@ -1,46 +1,86 @@
-.informacion-cruz-roja-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .informacion-cruz-roja-main-content {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .informacion-cruz-roja-top-bar {
-    background-color: #b40b0b;
-    padding: 10px 0;
-    color: white;
-    text-align: center;
-  }
-  
-  .informacion-cruz-roja-content {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .informacion-cruz-roja-content h2 {
-    margin-top: 20px;
-  }
-  
-  .informacion-cruz-roja-content p,
-  .informacion-cruz-roja-content ul {
-    margin: 10px 0;
-  }
-  
-  .informacion-cruz-roja-image {
-    margin: 20px 0;
-  }
-  
-  .informacion-cruz-roja-image img {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+/* Informacion.css */
+.info-cruz-roja-container {
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.info-cruz-roja-main {
+  padding: 20px;
+}
+
+.info-cruz-roja-header {
+  background-color: #c82333;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-bottom: 20px;
+}
+
+.info-cruz-roja-header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.info-cruz-roja-section {
+  margin-bottom: 40px;
+}
+
+.info-cruz-roja-image-box {
+  text-align: center;
+}
+
+.info-cruz-roja-image-red-box {
+  background-color: #c82333;
+  padding: 50px;
+  display: inline-block;
+  border-radius: 80px;
+}
+
+.info-cruz-roja-image-red-box img {
+  border-radius: 80px;
+  max-width: 100%;
+}
+
+.info-cruz-roja-title {
+  margin-top: 1px;
+  font-size: 3rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.info-cruz-roja-content h2 {
+  color: #c82333;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.info-cruz-roja-content ul {
+  padding-left: 20px;
+  font-size: 1.2rem;
+}
+
+.info-cruz-roja-content ul li {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.info-cruz-roja-section-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Altura de la sección */
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.info-cruz-roja-centered-content {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.Footer {
+  text-align: center;
+  padding: 20px;
+  align-items: center;
+}

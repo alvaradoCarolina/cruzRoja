@@ -11,13 +11,15 @@ const ProgramarCita = () => {
   const [selectedDay, setSelectedDay] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
-  const [userName, setUserName] = useState('');
+  const [usersName, setUsersName] = useState('');
+  const [usersEmail, setUsersEmail] = useState(""); 
 
   useEffect(() => { 
     const auth = getAuth(); 
-    const user = auth.currentUser; 
-    if (user) { 
-      setUserName(user.displayName || user.email); 
+    const users = auth.currentUsers; 
+    if (users) { 
+      setUsersName(users.displayName);  // Capturamos el nombre
+      setUsersEmail(users.email);    
       } 
     }, []);
 
@@ -39,11 +41,12 @@ const ProgramarCita = () => {
       return;
     }
     try {
-      const docRef = await addDoc(collection(db, "citas"), {
+      await addDoc(collection(db, "citas"), {
         day: selectedDay,
         time: selectedTime,
         location: selectedLocation,
-        user: userName
+        usersEmail: usersEmail,
+        usersName:usersName
       });
       alert("Cita agendada correctamente");
       setSelectedDay('');
@@ -69,9 +72,9 @@ const ProgramarCita = () => {
           <Col md={4}>
             <Form.Control as="select" value={selectedLocation} onChange={handleLocationChange}>
               <option value="">Seleccione un lugar de donación</option>
-              <option value="Centro 1">Centro 1</option>
-              <option value="Centro 2">Centro 2</option>
-              <option value="Centro 3">Centro 3</option>
+              <option value="Centro 1">CCI</option>
+              <option value="Centro 2">Alameda</option>
+              <option value="Centro 3">Recreo</option>
             </Form.Control>
           </Col>
         </Row>

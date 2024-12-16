@@ -2,81 +2,80 @@ import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import CustomNavbar from '../components/NavbarConSubmenu';
 import '../styles/Informacion.css';
-import imagenDonacion from '../assets/images/home2.png'; 
-import imagenDonacion1 from '../assets/images/info3.png'; 
+import imagenDonacion from '../assets/images/home2.png';
+import imagenDonacion1 from '../assets/images/info3.png';
 import Footer from '../components/Footer';
 
 const InformacionCruzRoja = () => {
   return (
-    <div className="informacion-cruz-roja-container">
+    <div className="info-cruz-roja-container">
       <CustomNavbar />
-      <Container fluid className="informacion-cruz-roja-main-content">
-        <Row className="informacion-cruz-roja-top-bar">
+      <Container fluid className="info-cruz-roja-main">
+        {/* Top Bar */}
+        <Row className="info-cruz-roja-header">
           <Col md={12}>
-            <h1 className="text-white">Información sobre la Donación de Sangre</h1>
+            <h1>Información sobre la Donación de Sangre</h1>
           </Col>
         </Row>
-        <Row>
-          <Col md={6} className="informacion-cruz-roja-image">
-            <Image src={imagenDonacion1} alt="Donación de Sangre" fluid />
+
+        {/* Primera Sección */}
+        <Row className="info-cruz-roja-section">
+          <Col md={6} className="info-cruz-roja-image-box">
+            <div className="info-cruz-roja-image-red-box">
+              <Image src={imagenDonacion1} alt="Donación de Sangre" fluid />
+              <h3 className="info-cruz-roja-title">REQUISITOS</h3>
+            </div>
           </Col>
-          <Col md={6} className="informacion-cruz-roja-content">
-            <h2>La donación de sangre es un acto solidario que puede salvar vidas. </h2>
-            <h2>Cada donación puede ayudar a hasta tres personas diferentes.</h2>
-            <h2>Además, la donación de sangre es segura y fácil de realizar.</h2>
-            
-            
-            <h2>Requisitos para Donar Sangre</h2>
+          <Col md={6} className="info-cruz-roja-content">
+            <h2>La donación es un acto solidario que puede salvar vidas. </h2>
+            <h2>Cada donación puede ayudar a hasta tres personas diferentes. </h2>
+            <h2>Además, es segura y fácil de realizar.</h2>
             <ul>
-              <li>Autorización y edad: Presentar documento de identificación. Los donantes deben tener entre 18 y 65 años de edad (los menores de 18 años pueden donar con autorización de su representante legal, los mayores de 65 años presentar certificado médico).</li>
-              <li>Peso adecuado: Se requiere un peso mínimo de 50 kilos (110 libras).</li>
-              <li>Buena salud general: El donante debe estar en buen estado de salud.</li>
-              <li>No haber donado sangre en los últimos 56 días.</li>
-              <li>No tener enfermedades transmisibles por la sangre (VIH, hepatitis, etc.).</li>
-              <li>No estar bajo tratamiento con ciertos medicamentos.</li>
-              <li>No haber viajado a zonas endémicas de malaria en el último año.</li>
-              <li>No tatuajes recientes: Después de realizarse un tatuaje, se debe esperar al menos 12 meses para donar.</li>
-              <li>Descanso: Los donantes deben haber cumplido con las horas mínimas de sueño (6 horas).</li>
-              <li>Alimentación previa: Es importante haber ingerido alimentos en las últimas 4 horas antes de la donación. No donar en ayunas.</li>
-              <li>No cirugías recientes: No se debe haber sometido a cirugías mayores durante el último año.</li>
+            <strong><li><h3>Tener entre 18 y 65 años de edad.</h3></li>
+              <li><h3>Pesar al menos 50 kilos (110 libras).</h3></li>
+              <li><h3>Estar en buen estado de salud.</h3></li>
+              <li><h3>No haber donado sangre en los últimos 56 días.</h3></li>
+              <li><h3>No tener enfermedades transmisibles por la sangre.</h3></li>
+              <li><h3>Haber dormido al menos 6 horas y haber ingerido alimentos en las últimas 4 horas.</h3></li></strong>
             </ul>
           </Col>
         </Row>
-        <Col md={20} className="informacion-cruz-roja-image">
-        <h2>Mitos y Verdades</h2>
-        <p>¿Donar sangre engorda?</p>
-        <p>Donar sangre no engorda, la persona tiene que mantener la ingesta de alimentos conforme su dieta habitual. </p>
-        <p>Si dono sangre, ¿puedo presentar anemia?</p>
-        <p>No, la anemia no se presenta por donar sangre debido a que el organismo se encarga de producir las células y remplazar las células donadas.</p>
-        <p>¿Me puedo contagiar de alguna enfermedad si dono sangre?</p>
-        <p>No, el material que se utiliza es nuevo, estéril y se descarta después del uso.</p>
-        <p>¿Solo puedo donar sangre una vez al año?</p>
-        <p>Se puede donar más de una vez al año. Las mujeres pueden donar cada cuatro meses y los hombres cada tres meses.</p>
-        <p>¿Las personas con tatuajes y piercing pueden donar sangre?</p>
-        <p>Si pueden donar sangre, hay que esperar 12 meses después de haberse realizado el tatuaje o colocado el piercing.La donación de sangre es un acto solidario que puede salvar vidas. Cada donación puede ayudar a hasta tres personas diferentes. Además, la donación de sangre es segura y fácil de realizar.</p>
-        
+
+        {/* Segunda Sección */}
+        <Row className="info-cruz-roja-section-centered">
+          <Col md={8} className="info-cruz-roja-centered-content">
+            <h1>Mitos y Verdades</h1>
+            <h3><p><strong>¿Donar sangre engorda?</strong> No, mantener una dieta saludable es lo único que afecta tu peso.</p></h3>
+            <h3><p><strong>¿Puedo presentar anemia?</strong> No, el cuerpo regenera rápidamente las células donadas.</p></h3>
+            <h3><p><strong>¿Es seguro donar sangre?</strong> Sí, todo el material utilizado es estéril y descartable.</p></h3>
+            <h3><p><strong>¿Las personas con tatuajes pueden donar sangre?</strong> Sí, pero deben esperar 12 meses después de hacerse el tatuaje.</p></h3>
           </Col>
-            
-        <Row>
-        <Col md={6} className="informacion-cruz-roja-content">
-            <h2>Beneficios</h2>
+        </Row>
+
+        {/* Tercera Sección */}
+        <Row className="info-cruz-roja-section">
+          <Col md={6} className="info-cruz-roja-content">
             <ul>
-              <li>Satisfacción de salvar vidas: Al donar sangre, estás contribuyendo a salvar vidas. ¡Nada puede ser más gratificante!
-
-
-
-.</li>
-              <li>Fomentar estilo de vida saludable: La donación de sangre te motiva a mantener un estilo de vida saludable. </li>
-              <li>Realizar un control de salud básico: Antes de donar, se realiza un chequeo básico de salud que incluye peso, pulso, presión arterial y hemoglobina.</li>
-              <li>Renovación celular: Donar sangre ayuda a la renovación celular, mejorando el transporte de oxígeno a los tejidos y transportando el dióxido de carbono para ser eliminados de los pulmones.</li>
+            <li><h3>Ayudas a salvar vidas.</h3></li>
+            <li><h3>Promueves un estilo de vida saludable.</h3></li>
+            <li><h3>Recibes un chequeo básico de salud antes de donar.</h3></li>
+            <li><h3>Favoreces la renovación celular en tu cuerpo.</h3></li>
+            <li><h3>Mejora la salud cardiovascular</h3></li>
+            <li><h3>Donar sangre estimula la producción de nuevas células sanguíneas, lo que ayuda a mantener el sistema sanguíneo en buen estado</h3></li>
+            <li><h3>Cada vez que donas sangre, se realiza un chequeo de salud básico, lo que puede detectar problemas de salud no detectados anteriormente, como niveles altos de hemoglobina o infecciones.</h3></li>
+            <li><h3>La donación ayuda a regular los niveles de hierro, lo que puede prevenir la sobrecarga de hierro, una condición que puede dañar los órganos.</h3></li>
+            <li><h3>Ayudar a salvar vidas genera un fuerte sentimiento de satisfacción y bienestar emocional.</h3></li>
+            <li><h3>La donación de sangre también es esencial para tratar a personas con enfermedades crónicas como leucemia o trastornos hemorrágicos.</h3></li>
             </ul>
           </Col>
-          <Col md={6} className="informacion-cruz-roja-image">
-            <Image src={imagenDonacion} alt="Donación de Sangre" fluid />
+          <Col md={6} className="info-cruz-roja-image-box">
+            <div className="info-cruz-roja-image-red-box">
+              <Image src={imagenDonacion} alt="Donación de Sangre" fluid />
+              <h3 className="info-cruz-roja-title">BENEFICIOS</h3>
+            </div>
           </Col>
         </Row>
       </Container>
-      
       <Footer />
     </div>
   );

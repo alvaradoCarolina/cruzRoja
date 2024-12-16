@@ -1,74 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from "firebase/firestore";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import { db } from '../services/firebaseConfig';
 import "../styles/Contacto.css";
 import sectorImage from '../assets/images/sectorImage.png';
-import mapaPichincha from '../assets/images/mapaPichincha.png';
-import mapaEcuador from '../assets/images/mapaEcuador.png';
 import Navbar from '../components/NavbarConSubmenu';
-import Footer from '../components/Footer';
+import 'leaflet/dist/leaflet.css';
 
 const Contacto = () => {
-  const [sector, setSector] = useState('');
-  const [showSectorMap, setShowSectorMap] = useState(false);
+  const [ubicaciones, setUbicaciones] = useState([]);
 
-  const handleSectorChange = (e) => {
-    setSector(e.target.value);
-    setShowSectorMap(true);
+  useEffect(() => {
+    const fetchUbicaciones = async () => {
+      const querySnapshot = await getDocs(collection(db, "ubicaciones"));
+      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setUbicaciones(data);
+    };
+
+    fetchUbicaciones();
+  }, []);
+
+  const cruzRojaIconMarker = new L.Icon({
+    iconUrl: 'https://static.vecteezy.com/system/resources/thumbnails/016/314/339/small/red-circle-red-dot-icon-free-png.png', // URL de un círculo rojo
+    iconSize: [15, 15], // Ajusta el tamaño del círculo
+    iconAnchor: [7.5, 7.5], // Centro del icono para alinearse con las coordenadas
+  });
+  
+
+  const sectores = ["norte", "centro", "sur"];
+  const coordenadasSectores = {
+    norte: [-0.1760813802672464, -78.47485900329045],
+    centro: [-0.2157000572708297, -78.50360031660246],
+    sur: [-0.31062179487857083, -78.54347381808886]
+  };
+
+  const contactosSectores = {
+    norte: {
+      email: "info@cruzrojanorte.org",
+      telefono: "(+593) 02-2902834"
+    },
+    centro: {
+      email: "info@cruzrojacentro.org",
+      telefono: "(+593) 02-2902835"
+    },
+    sur: {
+      email: "info@cruzrojasur.org",
+      telefono: "(+593) 02-2902836"
+    }
   };
 
   return (
     <div className="contacto-container">
-        <Navbar />
-      {/* Imagen al principio */}
+      <Navbar />
       <div className="header-image">
-        <img src={sectorImage} alt="Imagen de cabecera" className="img-fluid" />
-      </div>
-      
-      {/* Sección para seleccionar sector */}
-      <div className="sector-selection">
-        <h2>Selecciona tu Sector</h2>
-        <div className="sector-options">
-          <select value={sector} onChange={handleSectorChange}>
-            <option value="">Seleccione un sector</option>
-            <option value="norte">Norte</option>
-            <option value="centro">Centro</option>
-            <option value="sur">Sur</option>
-          </select>
-          <div className="sector-details">
-            {sector === 'norte' && <p>Opciones para el sector Norte</p>}
-            {sector === 'centro' && <p>Opciones para el sector Centro</p>}
-            {sector === 'sur' && <p>Opciones para el sector Sur</p>}
-          </div>
-        </div>
+        <img src={sectorImage} alt="Imagen de cabecera" className="header-full-width" />
       </div>
 
-      {/* Mapa y detalles de contacto del sector seleccionado */}
-      {showSectorMap && (
-        <div className="sector-map-contact">
-          <div className="sector-map">
-            <img src={mapaPichincha} alt="Mapa de sector" className="img-fluid" />
+      <div className="sectores-mapas" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px' }}>
+        {sectores.map((sector) => (
+          <div key={sector} className="sector-map-contact" style={{ flex: 1, textAlign: 'center' }}>
+            <h3>Sector {sector.charAt(0).toUpperCase() + sector.slice(1)}</h3>
+            <MapContainer 
+              center={coordenadasSectores[sector]} 
+              zoom={14} 
+              style={{ height: '400px', width: '100%' }}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              />
+              {ubicaciones.filter(ubicacion => ubicacion.sector === sector).map((ubicacion) => (
+                <Marker 
+                  key={ubicacion.id} 
+                  position={[ubicacion.lat, ubicacion.lng]} 
+                  icon={cruzRojaIconMarker}
+                >
+                  <Popup>
+                    {ubicacion.nombre} <br /> {ubicacion.direccion}
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+            <div className="sector-contact-info" style={{ marginTop: '10px' }}>
+              <p><strong>Correo Electrónico:</strong> <a href={`mailto:${contactosSectores[sector].email}`}>{contactosSectores[sector].email}</a></p>
+              <p><strong>Teléfono:</strong> <a href={`tel:${contactosSectores[sector].telefono}`}>{contactosSectores[sector].telefono}</a></p>
+            </div>
           </div>
-          <div className="sector-contact-details">
-            <h3>Contacto del Sector</h3>
-            <p>Correo Electrónico: <a href="mailto:info@cruzrojapichincha.org">info@cruzrojapichincha.org</a></p>
-            <p>Teléfono: <a href="tel:+593022902834">(+593)02-2902834</a></p>
-          </div>
-        </div>
-      )}
-
-      {/* Mapa general con todos los puntos de Cruz Roja y detalles de contacto generales */}
-      <div className="general-map-contact">
-        <div className="general-map">
-          <img src={mapaEcuador} alt="Mapa general" className="img-fluid" />
-        </div>
-        <div className="general-contact-details">
-          <h3>Contacto General</h3>
-          <p>Correo Electrónico: <a href="mailto:comunicacion@cruzroja.org.ec">comunicacion@cruzroja.org.ec</a></p>
-          <p>Teléfono: <a href="tel:+59322582482">(+593 2) 2582 482</a></p>
-        </div>
+        ))}
       </div>
-
-      
-      <Footer />
     </div>
   );
 };
